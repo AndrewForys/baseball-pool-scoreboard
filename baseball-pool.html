@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="bbp-style.css">
+<body style="display: flex; flex-direction: column; align-items: center;">
+</head>
+
+<h1>Player 1</h1>
+<div class="player">
+    <div class="bases">
+        <button onclick="myFunction(this)" class="third normal"></button>
+        <button onclick="myFunction(this)" class="second normal"></button>
+        <button onclick="myFunction(this)" class="first normal"></button>
+    </div>
+
+    <div class="scores">
+        <div class="runs">
+            <div>Runs: <span id="runCountP1"></span></div>
+            <button onclick="changeRunsP1(1)" class="scoreButton plus">+</button>
+            <button onclick="changeRunsP1(-1)" class="scoreButton minus">-</button>
+        </div>
+        <div class="outs">
+            <div>Outs: <span id="outCountP1"></span></div>
+            <button onclick="changeOutsP1(1)" class="scoreButton plus">+</button>
+            <button onclick="changeOutsP1(-1)" class="scoreButton minus">-</button>
+        </div>
+    </div>
+</div>
+
+<h1>Player 2</h1>
+<div class="player">
+    <div class="bases">
+        <button onclick="myFunction(this)" class="third normal"></button>
+        <button onclick="myFunction(this)" class="second normal"></button>
+        <button onclick="myFunction(this)" class="first normal"></button>
+    </div>
+
+    <div class="scores">
+        <div class="runs">
+            <div>Runs: <span id="runCountP2"></span></div>
+            <button onclick="changeRunsP2(1)" class="scoreButton plus">+</button>
+            <button onclick="changeRunsP2(-1)" class="scoreButton minus">-</button>
+        </div>
+        <div class="outs">
+            <div>Outs: <span id="outCountP2"></span></div>
+            <button onclick="changeOutsP2(1)" class="scoreButton plus">+</button>
+            <button onclick="changeOutsP2(-1)" class="scoreButton minus">-</button>
+        </div>
+    </div>
+</div>
+
+
+<script>
+//Initialize Player 1 counters
+document.getElementById("runCountP1").innerText = 0;
+document.getElementById("outCountP1").innerText = 0;
+//Initialize Player 2 counters
+document.getElementById("runCountP2").innerText = 0;
+document.getElementById("outCountP2").innerText = 0;
+
+//Player 1 run counter
+var runCountP1 = 0;
+function changeRunsP1(amount) {
+    runCountP1 += amount;
+    if (runCountP1 < 0) {
+        runCountP1 = 0; // Prevent negative runs
+    }
+    document.getElementById("runCountP1").innerText = runCountP1;
+}
+
+//Player 1 out counter
+var outCountP1 = 0;
+function changeOutsP1(amount) {
+    outCountP1 += amount;
+    if (outCountP1 < 0) {
+        outCountP1 = 0; // Prevent negative outs
+    }
+    if (outCountP1 > 3) {
+        outCountP1 = 3; // Prevent outs greater than 3
+    }
+    document.getElementById("outCountP1").innerText = outCountP1;
+}
+
+//Player 2 run counter
+var runCountP2 = 0;
+function changeRunsP2(amount) {
+    runCountP2 += amount;
+    if (runCountP2 < 0) {
+        runCountP2 = 0; // Prevent negative runs
+    }
+    document.getElementById("runCountP2").innerText = runCountP2;
+}
+
+//Player 2 out counter
+var outCountP2 = 0;
+function changeOutsP2(amount) {
+    outCountP2 += amount;
+    if (outCountP2 < 0) {
+        outCountP2 = 0; // Prevent negative outs
+    }
+    if (outCountP2 > 3) {
+        outCountP2 = 3; // Prevent outs greater than 3
+    }
+    document.getElementById("outCountP2").innerText = outCountP2;
+}
+function myFunction(button) {
+    var buttonClass = button.getAttribute("class");
+    var buttonBase = buttonClass.split(" ")[0]; // Get the base class (first, second, third)
+    var buttonState = buttonClass.split(" ")[1]; // Get the current state (normal, selected)
+    if (buttonState === "normal") {
+        buttonState = "selected";
+        button.setAttribute("class", buttonBase + " " + buttonState); // Update the clicked button to selected
+    }
+    else {
+        buttonState = "normal";
+        button.setAttribute("class", buttonBase + " " + buttonState); // Update the clicked button to normal
+    }
+}
+</script>
+
+
+
+</body>
+</html>

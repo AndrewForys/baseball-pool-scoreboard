@@ -1,0 +1,62 @@
+.normal {
+    background-color: white;
+    border-color: black;
+}
+
+.selected {
+    background-color: gold;
+    border-color: black;
+}
+
+.first {
+    width: 100px;
+    height: 100px;
+    transform: translatex(30px) translatey(90px) rotate(45deg);
+}
+
+.second {
+    width: 100px;
+    height: 100px;
+    transform: translatex(50px) translatey(10px) rotate(45deg);
+}
+
+.third {
+    width: 100px;
+    height: 100px;
+    transform: translatex(70px) translatey(90px) rotate(45deg);
+}
+
+.player {
+    display: flex;
+    flex-direction: row;
+}
+
+.scores {
+ font-size: 36px;
+ display: flex;
+ align-items: center;
+ justify-content: space-around;
+ flex-direction: column;
+}
+
+.bases {
+    height: 220px;
+    width: 400px;
+}
+
+.scoreButton {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+}
+
+.plus {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border-radius: 100px;
+}
+.minus {
+    background-color: #f44336; /* Red */
+    color: white;
+    border-radius: 100px;
+}
